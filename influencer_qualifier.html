@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="vendor/papaparse.min.js"></script>
+
+    <style>
+      a { text-decoration: none; }
+      * { margin-bottom: 10px; }
+      .influencer { margin-bottom: 30px; }
+      .influencer p { height: 25px; margin: none; margin-bottom: 10px; }
+      .influencer h3 { height: 30px; }
+      img { max-width: 150px; }
+      textarea { width: 700px; height: 200px; }
+    </style>
+  </head>
+  <body>
+    <p>Enter your scraped influencer CSV data here.</p>
+    <input id="influencer-csv-file" type="file">
+
+    <br>
+    <br>
+
+    <div>
+      <div id="influencer-list">
+      </div>
+      <button id="load-more-button">Load more</button>
+      <br>
+      <br>
+      <textarea id="export-approved-influencers-textarea"></textarea>
+      <br>
+      <button id="export-approved-influencers">Export</button>
+    </div>
+
+    <script src="influencer_qualifier.js"></script>
+  </body>
+</html>

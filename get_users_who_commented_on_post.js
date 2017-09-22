@@ -1,3 +1,4 @@
+// Paste into developer console in chrome
 var s = $;
 var clipboard = copy;
 var intervalId = setInterval(function () {
@@ -12,7 +13,10 @@ var intervalId = setInterval(function () {
       u.style.color = "#ffffff";
       o[u.text] = 1;
     }
-    clipboard(Object.keys(o));
+    var keysJSONString = JSON.stringify(Object.keys(o));
+    var output = keysJSONString.replace(/(\[\"|\"\])/g, "").replace(/\",\"/g, "\n");
+    clipboard(output);
+    console.log("Done.");
 
     return clearInterval(intervalId);
   }
