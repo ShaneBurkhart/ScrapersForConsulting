@@ -13,7 +13,7 @@ var OUTPUT_CSV_FIELDS = [
 var OUTPUT_FILENAME = 'output/influencers.csv';
 
 // INFLUENCER REQUIREMENTS
-var AVERAGE_ENGAGEMENT_MIN = 200;
+var AVERAGE_ENGAGEMENT_MIN = 300;
 
 // The setInterval interval id
 var intervalId = null;

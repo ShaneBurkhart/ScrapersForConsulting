@@ -21,13 +21,14 @@ $(document).ready(function () {
     for (var i = 0; i < influencersToRender.length; i++) {
       var influencer = influencersToRender[i];
       var imagesElements = [];
+      var currentInfluencerIndex = influencerIndex + i;
 
       for (var j = 1; j <= 6; j++) {
         imagesElements.push("<img src='" + influencer["imageURL" + j] + "'>");
       }
 
       $influencerList.append([
-        "<div class='influencer' data-index='" + i + "'>",
+        "<div class='influencer' data-index='" + currentInfluencerIndex + "'>",
           "<a href='" + influencer["url"] + "'>",
             "<h3>",
               influencer["fullName"] + "(@" + influencer["username"] + ")",
@@ -52,6 +53,8 @@ $(document).ready(function () {
   $influencerList.delegate('.approve', "click", function (e) {
     var $influencer = $(e.currentTarget.parentNode);
     $influencer.remove();
+
+    if (!$influencerList.children().length) renderNextInfluencers();
   });
 
   $influencerList.delegate('.disapprove', "click", function (e) {
@@ -60,6 +63,8 @@ $(document).ready(function () {
 
     influencerData[indexToRemove] = null;
     $influencer.remove();
+
+    if (!$influencerList.children().length) renderNextInfluencers();
   });
 
   $loadMoreButton.click(function (e) {
